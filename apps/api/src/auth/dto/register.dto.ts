@@ -1,4 +1,4 @@
-import { Role } from '@votorantim-futebol/database';
+import { Role } from '@mais-corporativo/database';
 
 export class RegisterDto {
     email: string;

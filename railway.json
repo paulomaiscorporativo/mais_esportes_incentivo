@@ -1,42 +1,42 @@
 {
     "$schema": "https://railway.app/railway.schema.json",
     "services": {
-        "api": {
-            "name": "api",
+        "mais-api": {
+            "name": "mais-api",
             "root": "/",
             "source": {
-                "repo": "votorantim-futebol"
+                "repo": "mais_esportes_incentivo"
             },
             "build": {
                 "builder": "NIXPACKS",
-                "buildCommand": "npx turbo run build --filter=@votorantim-futebol/api",
+                "buildCommand": "npx turbo run build --filter=@mais-futebol/api",
                 "watchPatterns": [
                     "apps/api/**",
                     "packages/**"
                 ]
             },
             "deploy": {
-                "startCommand": "node apps/api/dist/main.js",
+                "startCommand": "node apps/api/dist/apps/api/src/main.js",
                 "healthcheckPath": "/",
                 "restartPolicy": "ON_FAILURE"
             }
         },
-        "web": {
-            "name": "web",
+        "mais-web": {
+            "name": "mais-web",
             "root": "/",
             "source": {
-                "repo": "votorantim-futebol"
+                "repo": "mais_esportes_incentivo"
             },
             "build": {
                 "builder": "NIXPACKS",
-                "buildCommand": "npx turbo run build --filter=@votorantim-futebol/web",
+                "buildCommand": "npx turbo run build --filter=@mais-futebol/web",
                 "watchPatterns": [
                     "apps/web/**",
                     "packages/**"
                 ]
             },
             "deploy": {
-                "startCommand": "npx turbo run start --filter=@votorantim-futebol/web",
+                "startCommand": "npx turbo run start --filter=@mais-futebol/web",
                 "healthcheckPath": "/",
                 "restartPolicy": "ON_FAILURE"
             }

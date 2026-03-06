@@ -16,7 +16,7 @@
         "strictNullChecks": false,
         "noFallthroughCasesInSwitch": false,
         "paths": {
-            "@votorantim-futebol/database": [
+            "@mais-corporativo/database": [
                 "../../packages/database"
             ]
         }

@@ -175,7 +175,7 @@ model Passenger {
   order         Order    @relation(fields: [orderId], references: [id])
 }
 
-// Emissores de NF-e autorizados a gerar Votorantim Coins
+// Emissores de NF-e autorizados a gerar Mais Coins
 // Gerenciado pelo Admin via painel — sem necessidade de alterar código
 model AllowedEmitter {
   id        String   @id @default(uuid())

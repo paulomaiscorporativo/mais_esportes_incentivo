@@ -2,7 +2,7 @@ import { Injectable, BadRequestException, ConflictException, UnprocessableEntity
 import { PrismaService } from '../prisma.service';
 import { LedgerService } from '../ledger/ledger.service';
 import { AllowedEmittersService } from '../allowed-emitters/allowed-emitters.service';
-import { Invoice, InvoiceStatus } from '@votorantim-futebol/database';
+import { Invoice, InvoiceStatus } from '@mais-corporativo/database';
 
 @Injectable()
 export class InvoiceService {
@@ -18,14 +18,14 @@ export class InvoiceService {
             throw new BadRequestException('Chave de acesso inválida. Deve conter exatamente 44 dígitos numéricos.');
         }
 
-        // 2. Validação do emitente via banco de dados (emissores autorizados do Grupo Votorantim)
+        // 2. Validação do emitente via banco de dados (emissores autorizados do Mais Corporativo)
         // ⚠️  TEMPORARIAMENTE DESABILITADO — descomente para reativar a validação por CNPJ
         // const cnpjEmitente = accessKey.substring(6, 20);
         // const emitterAllowed = await this.allowedEmitters.isAllowed(cnpjEmitente);
         // if (!emitterAllowed) {
         //     throw new UnprocessableEntityException(
-        //         `Esta Nota Fiscal não pôde ser contabilizada pois foi emitida por um fornecedor fora do Grupo Votorantim Cimentos. ` +
-        //         `Apenas notas fiscais de compras realizadas com empresas do Grupo Votorantim Cimentos geram Votorantim Coins. ` +
+        //         `Esta Nota Fiscal não pôde ser contabilizada pois foi emitida por um fornecedor fora do sistema Mais Corporativo. ` +
+        //         `Apenas notas fiscais de compras realizadas com empresas parceiras do Mais Corporativo geram Mais Coins. ` +
         //         `Verifique a chave informada ou entre em contato com seu representante comercial.`
         //     );
         // }

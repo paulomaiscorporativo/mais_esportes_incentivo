@@ -13,6 +13,8 @@ module.exports = {
                     orange: '#f58f2a',
                     red: '#f15424',
                     navy: '#14244c',
+                    green: '#22c55e', // Emerald 500
+                    yellow: '#eab308', // Yellow 500
                 },
             },
         },

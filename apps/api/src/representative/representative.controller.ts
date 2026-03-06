@@ -1,7 +1,7 @@
 import { Controller, Get, Param, UseGuards, Request } from '@nestjs/common';
 import { RepresentativeService } from './representative.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { User } from '@votorantim-futebol/database';
+import { User } from '@mais-corporativo/database';
 
 @UseGuards(JwtAuthGuard)
 @Controller('representative')

@@ -2,7 +2,7 @@ import { Controller, Post, Get, Body, UseGuards, Request } from '@nestjs/common'
 import { InvoiceService } from './invoice.service';
 import { SubmitInvoiceDto } from './dto/submit-invoice.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Invoice } from '@votorantim-futebol/database';
+import { Invoice } from '@mais-corporativo/database';
 
 @UseGuards(JwtAuthGuard)
 @Controller('invoices')

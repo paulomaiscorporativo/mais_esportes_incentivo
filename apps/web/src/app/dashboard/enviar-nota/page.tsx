@@ -86,7 +86,7 @@ export default function EnviarNotaPage() {
                         />
 
                         {error && (
-                            error.includes('Grupo Votorantim') ? (
+                            error.includes('Mais Corporativo') || error.includes('sistema') ? (
                                 <div className="mt-4 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-left flex items-start gap-4">
                                     <span className="text-2xl flex-shrink-0">🚫</span>
                                     <div>
