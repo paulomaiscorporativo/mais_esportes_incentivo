@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
-import { Prisma, User } from '@mais-corporativo/database';
+import { Prisma, User } from 'mais-database';
 
 @Injectable()
 export class UsersService implements OnModuleInit {

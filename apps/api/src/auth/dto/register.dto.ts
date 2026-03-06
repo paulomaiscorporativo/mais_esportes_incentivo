@@ -1,4 +1,4 @@
-import { Role } from '@mais-corporativo/database';
+import { Role } from 'mais-database';
 
 export class RegisterDto {
     email: string;

@@ -2,7 +2,7 @@ import { Injectable, BadRequestException, ConflictException, UnprocessableEntity
 import { PrismaService } from '../prisma.service';
 import { LedgerService } from '../ledger/ledger.service';
 import { AllowedEmittersService } from '../allowed-emitters/allowed-emitters.service';
-import { Invoice, InvoiceStatus } from '@mais-corporativo/database';
+import { Invoice, InvoiceStatus } from 'mais-database';
 
 @Injectable()
 export class InvoiceService {

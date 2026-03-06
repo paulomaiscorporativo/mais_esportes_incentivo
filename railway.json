@@ -9,7 +9,7 @@
             },
             "build": {
                 "builder": "NIXPACKS",
-                "buildCommand": "npx turbo run build --filter=@mais-futebol/api",
+                "buildCommand": "npx turbo run build --filter=mais-api",
                 "watchPatterns": [
                     "apps/api/**",
                     "packages/**"
@@ -29,14 +29,14 @@
             },
             "build": {
                 "builder": "NIXPACKS",
-                "buildCommand": "npx turbo run build --filter=@mais-futebol/web",
+                "buildCommand": "npx turbo run build --filter=mais-web",
                 "watchPatterns": [
                     "apps/web/**",
                     "packages/**"
                 ]
             },
             "deploy": {
-                "startCommand": "npx turbo run start --filter=@mais-futebol/web",
+                "startCommand": "npx turbo run start --filter=mais-web",
                 "healthcheckPath": "/",
                 "restartPolicy": "ON_FAILURE"
             }

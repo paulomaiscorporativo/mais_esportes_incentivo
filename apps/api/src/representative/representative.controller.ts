@@ -1,7 +1,7 @@
 import { Controller, Get, Param, UseGuards, Request } from '@nestjs/common';
 import { RepresentativeService } from './representative.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { User } from '@mais-corporativo/database';
+import { User } from 'mais-database';
 
 @UseGuards(JwtAuthGuard)
 @Controller('representative')

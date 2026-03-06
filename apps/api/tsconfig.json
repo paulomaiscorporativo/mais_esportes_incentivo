@@ -16,7 +16,7 @@
         "strictNullChecks": false,
         "noFallthroughCasesInSwitch": false,
         "paths": {
-            "@mais-corporativo/database": [
+            "mais-database": [
                 "../../packages/database"
             ]
         }
