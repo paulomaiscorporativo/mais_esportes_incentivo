@@ -57,17 +57,17 @@ export default function RegisterPage() {
     }
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-votorantim-blue px-4 py-12 sm:px-6 lg:px-8">
+        <div className="flex min-h-screen items-center justify-center bg-mais-blue px-4 py-12 sm:px-6 lg:px-8">
             <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-2xl">
                 <div>
-                    <h1 className="text-center text-3xl font-bold text-votorantim-blue">
-                        Votorantim <span className="text-votorantim-green">Futebol</span>
+                    <h1 className="text-center text-3xl font-bold text-mais-blue">
+                        Mais Corporativo <span className="text-mais-orange">Incentivo</span>
                     </h1>
                     <h2 className="mt-6 text-center text-xl font-semibold tracking-tight text-gray-900">
                         Crie sua conta
                     </h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
-                        Preencha seus dados para começar a ganhar Coins
+                        Preencha seus dados para começar a ganhar Mais Coins
                     </p>
                 </div>
 
@@ -87,7 +87,7 @@ export default function RegisterPage() {
                                 id="role"
                                 value={role}
                                 onChange={(e) => setRole(e.target.value)}
-                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-votorantim-green focus:outline-none focus:ring-votorantim-green sm:text-sm"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-mais-orange focus:outline-none focus:ring-mais-orange sm:text-sm"
                             >
                                 <option value="CNPJ_MASTER">Dono de Loja (CNPJ)</option>
                                 <option value="CPF_SELLER">Vendedor (CPF)</option>
@@ -103,7 +103,7 @@ export default function RegisterPage() {
                                 required
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-votorantim-green focus:outline-none focus:ring-votorantim-green sm:text-sm"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-mais-orange focus:outline-none focus:ring-mais-orange sm:text-sm"
                             />
                         </div>
                         <div>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-votorantim-green focus:outline-none focus:ring-votorantim-green sm:text-sm"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-mais-orange focus:outline-none focus:ring-mais-orange sm:text-sm"
                             />
                         </div>
                         <div>
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                                 required
                                 value={document}
                                 onChange={(e) => setDocument(e.target.value)}
-                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-votorantim-green focus:outline-none focus:ring-votorantim-green sm:text-sm"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-mais-orange focus:outline-none focus:ring-mais-orange sm:text-sm"
                             />
                         </div>
                         {role === 'CPF_SELLER' && (
@@ -158,7 +158,7 @@ export default function RegisterPage() {
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-votorantim-green focus:outline-none focus:ring-votorantim-green sm:text-sm"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-mais-orange focus:outline-none focus:ring-mais-orange sm:text-sm"
                             />
                         </div>
                     </div>
@@ -166,13 +166,13 @@ export default function RegisterPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="flex w-full justify-center rounded-lg bg-votorantim-green px-4 py-3 text-sm font-bold text-white shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-votorantim-green focus:ring-offset-2 disabled:bg-gray-400"
+                        className="flex w-full justify-center rounded-lg bg-mais-orange px-4 py-3 text-sm font-bold text-white shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-mais-orange focus:ring-offset-2 disabled:bg-gray-400"
                     >
                         {loading ? 'Cadastrando...' : 'Criar minha conta'}
                     </button>
 
                     <div className="text-center text-sm">
-                        <a href="/login" className="font-medium text-votorantim-blue hover:text-votorantim-green">
+                        <a href="/login" className="font-medium text-mais-blue hover:text-mais-orange">
                             Já tem conta? Faça login
                         </a>
                     </div>

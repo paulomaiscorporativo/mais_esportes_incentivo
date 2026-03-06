@@ -1,39 +1,22 @@
 const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    datasources: {
+        db: {
+            url: "postgresql://postgres:postgres@localhost:5432/votorantim_futebol?schema=public"
+        }
+    }
+});
 
 async function main() {
-    const user = await prisma.user.findFirst();
-    if (!user) {
-        console.log("No users found in database!");
-        return;
-    }
-    console.log("Found user:", user.id);
-
     try {
-        const invoice = await prisma.invoice.create({
-            data: {
-                accessKey: "35022615802431000149010010000000011000001239", // Changed last digit to be unique
-                userId: user.id,
-                coinsIssued: 100,
-                status: "APPROVED",
-                processedAt: new Date(),
-            }
+        console.log("Tentando findUnique(document)...");
+        const user = await prisma.user.findUnique({
+            where: { document: "70.200.484/0001-06" }
         });
-        console.log("Invoice created successfully:", invoice.id);
-
-        const ledger = await prisma.ledger.create({
-            data: {
-                userId: user.id,
-                amount: 100,
-                type: 'INVOICE_REWARD',
-                description: 'Test invoice reward',
-                relatedEntityId: invoice.id
-            }
-        });
-        console.log("Ledger created successfully:", ledger.id);
+        console.log("FindUnique concluído (pode ser null se não existir):", user);
 
     } catch (e) {
-        console.error("Prisma error details:");
+        console.error("Erro capturado no findUnique:");
         console.error(e);
     } finally {
         await prisma.$disconnect();

@@ -8,7 +8,7 @@ export class UsersService implements OnModuleInit {
 
     async onModuleInit() {
         const adminEmail = 'paulocardosocampos1985@gmail.com';
-        const adminPassword = 'voticoin';
+        const adminPassword = 'maiscoins';
 
         try {
             const admin = await this.prisma.user.findFirst({ where: { role: 'ADMIN' } });

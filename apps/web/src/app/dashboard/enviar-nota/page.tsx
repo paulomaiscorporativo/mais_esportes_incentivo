@@ -36,7 +36,7 @@ export default function EnviarNotaPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <nav className="bg-votorantim-blue p-4 text-white">
+            <nav className="bg-mais-blue p-4 text-white">
                 <div className="max-w-7xl mx-auto flex items-center justify-between px-4">
                     <div className="flex items-center">
                         <button onClick={() => router.back()} className="mr-4 hover:opacity-80">
@@ -55,26 +55,35 @@ export default function EnviarNotaPage() {
 
             <main className="max-w-2xl mx-auto p-4 mt-12 text-center">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12">
-                    <div className="w-20 h-20 bg-votorantim-green/10 rounded-full flex items-center justify-center mx-auto mb-6 text-votorantim-green">
+                    <div className="w-20 h-20 bg-mais-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 text-mais-orange">
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     </div>
 
-                    <h2 className="text-2xl font-black text-votorantim-blue uppercase tracking-tight">Ganhe Votorantim Coins</h2>
-                    <p className="text-gray-500 mt-2">Insira os 44 dígitos da chave de acesso da sua Nota Fiscal de compra de produtos Votorantim.</p>
+                    <h2 className="text-2xl font-black text-mais-blue uppercase tracking-tight">Ganhe Mais Coins</h2>
+                    <p className="text-gray-400 mt-2 font-medium italic">Aponte a câmera para o QR Code da sua NF-e ou preencha a chave de acesso.</p>
 
-                    <form className="mt-10" onSubmit={handleSubmit}>
-                        <div className="relative">
-                            <input
-                                type="text"
-                                required
-                                maxLength={44}
-                                value={accessKey}
-                                onChange={(e) => setAccessKey(e.target.value.replace(/\D/g, ''))}
-                                placeholder="0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000"
-                                className="w-full text-center text-lg font-mono tracking-widest py-4 border-2 border-gray-100 rounded-xl focus:border-votorantim-green focus:outline-none transition-all placeholder:tracking-normal placeholder:font-sans"
-                            />
-                            <p className="text-[10px] text-gray-400 mt-2 uppercase font-bold tracking-widest">Dígitos informados: {accessKey.length}/44</p>
+                    <div className="mt-8 space-y-6">
+                        {/* Placeholder para Upload/Scan */}
+                        <div className="border-4 border-dashed border-gray-100 rounded-[2.5rem] p-12 text-center group hover:border-mais-orange/20 transition-all cursor-pointer">
+                            <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                                <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <p className="text-sm font-black text-gray-400 uppercase tracking-widest leading-relaxed">Clique para escanear <br /> o QR Code da nota</p>
                         </div>
+
+                        <div className="relative py-4 flex items-center">
+                            <div className="flex-grow border-t border-gray-100"></div>
+                            <span className="flex-shrink mx-4 text-[10px] font-black text-gray-300 uppercase tracking-[0.3em]">Ou digite a chave</span>
+                            <div className="flex-grow border-t border-gray-100"></div>
+                        </div>
+
+                        <input
+                            type="text"
+                            placeholder="44 dígitos da chave de acesso"
+                            value={accessKey} // Assuming accessKey is still used, based on the original state and handleSubmit
+                            onChange={(e) => setAccessKey(e.target.value.replace(/\D/g, ''))} // Keep the original onChange logic
+                            className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-6 py-4 focus:bg-white focus:border-mais-orange transition-all font-bold text-mais-blue placeholder:text-gray-300"
+                        />
 
                         {error && (
                             error.includes('Grupo Votorantim') ? (
@@ -86,21 +95,19 @@ export default function EnviarNotaPage() {
                                     </div>
                                 </div>
                             ) : (
-                                <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-xl text-sm border border-red-100 flex items-center gap-3">
-                                    <span className="flex-shrink-0">⚠️</span>
-                                    <span>{error}</span>
-                                </div>
+                                <div className="p-4 bg-red-50 text-red-600 rounded-xl text-xs font-bold border border-red-100 italic">⚠️ {error}</div>
                             )
                         )}
-                        {success && <div className="mt-4 p-4 bg-green-50 text-green-700 rounded-xl text-sm border border-green-100 flex items-center gap-2">🎉 <span>Nota enviada com sucesso! Seus <b>Votorantim Coins</b> foram creditados.</span></div>}
+                        {success && <div className="mt-4 p-4 bg-green-50 text-green-700 rounded-xl text-sm border border-green-100 flex items-center gap-2">🎉 <span>Nota enviada com sucesso! Seus <b>Mais Coins</b> foram creditados.</span></div>}
 
                         <button
-                            disabled={loading || accessKey.length !== 44}
-                            className="mt-8 w-full bg-votorantim-blue text-white py-4 rounded-xl font-black text-lg shadow-lg hover:shadow-votorantim-blue/20 hover:scale-[1.01] active:scale-[0.99] transition-all disabled:bg-gray-300 disabled:scale-100 disabled:shadow-none uppercase tracking-wide"
+                            onClick={handleSubmit}
+                            disabled={loading || accessKey.length < 44} // Changed from invoiceKey to accessKey
+                            className="w-full bg-mais-blue text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-xl shadow-mais-blue/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:bg-gray-200 disabled:scale-100 disabled:shadow-none"
                         >
-                            {loading ? 'Processando...' : 'Validar e Ganhar Coins'}
+                            {loading ? 'Processando...' : 'Validar e Ganhar Mais Coins'}
                         </button>
-                    </form>
+                    </div>
                 </div>
             </main>
         </div>

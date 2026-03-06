@@ -8,10 +8,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                votorantim: {
-                    blue: '#002C5B',
-                    green: '#78BE20',
-                    yellow: '#FFCD00',
+                mais: {
+                    blue: '#0c2444',
+                    orange: '#f58f2a',
+                    red: '#f15424',
+                    navy: '#14244c',
                 },
             },
         },

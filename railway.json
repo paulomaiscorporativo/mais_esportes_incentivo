@@ -1,0 +1,45 @@
+{
+    "$schema": "https://railway.app/railway.schema.json",
+    "services": {
+        "api": {
+            "name": "api",
+            "root": "/",
+            "source": {
+                "repo": "votorantim-futebol"
+            },
+            "build": {
+                "builder": "NIXPACKS",
+                "buildCommand": "npx turbo run build --filter=@votorantim-futebol/api",
+                "watchPatterns": [
+                    "apps/api/**",
+                    "packages/**"
+                ]
+            },
+            "deploy": {
+                "startCommand": "node apps/api/dist/main.js",
+                "healthcheckPath": "/",
+                "restartPolicy": "ON_FAILURE"
+            }
+        },
+        "web": {
+            "name": "web",
+            "root": "/",
+            "source": {
+                "repo": "votorantim-futebol"
+            },
+            "build": {
+                "builder": "NIXPACKS",
+                "buildCommand": "npx turbo run build --filter=@votorantim-futebol/web",
+                "watchPatterns": [
+                    "apps/web/**",
+                    "packages/**"
+                ]
+            },
+            "deploy": {
+                "startCommand": "npx turbo run start --filter=@votorantim-futebol/web",
+                "healthcheckPath": "/",
+                "restartPolicy": "ON_FAILURE"
+            }
+        }
+    }
+}

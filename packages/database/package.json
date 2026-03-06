@@ -5,6 +5,7 @@
     "types": "./dist/index.d.ts",
     "scripts": {
         "generate": "prisma generate",
+        "build": "prisma generate",
         "db:push": "prisma db push"
     },
     "dependencies": {
